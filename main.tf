@@ -6,6 +6,7 @@ module "vpc" {
   azs                  = data.aws_availability_zones.azs.names
   public_subnets       = var.public_subnets
   enable_dns_hostnames = true
+  map_public_ip_on_launch = true
   tags = {
     Name        = "jenkins-vpc"
     Terraform   = "true"
@@ -32,8 +33,8 @@ module "sg" {
       cidr_blocks = "0.0.0.0/0"
     },
     {
-      from_port   = 20
-      to_port     = 20
+      from_port   = 22
+      to_port     = 22
       protocol    = "tcp"
       description = "SSH Port"
       cidr_blocks = "0.0.0.0/0"
