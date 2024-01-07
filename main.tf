@@ -20,3 +20,39 @@ module "vpc" {
     Name = "jenkins-public-subnet"
   }
 }
+
+# Security Group
+module "vote_service_sg" {
+  source      = "terraform-aws-modules/security-group/aws"
+  name        = "jenkins-sg"
+  description = "Security group for Jenkins Server"
+  vpc_id      = module.vpc.vpc_id
+  ingress_with_cidr_blocks = [
+    {
+      from_port   = 8080
+      to_port     = 8080
+      protocol    = "tcp"
+      description = "HTTP Port"
+      cidr_blocks = "0.0.0.0/0"
+    },
+    {
+      from_port   = 20
+      to_port     = 20
+      protocol    = "tcp"
+      description = "SSH Port"
+      cidr_blocks = "0.0.0.0/0"
+    },
+  ]
+  egress_with_cidr_blocks = [
+    {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = "0.0.0.0/0"
+    }
+  ]
+
+  tags = {
+    Name = "jenkins-sg"
+  }
+}
