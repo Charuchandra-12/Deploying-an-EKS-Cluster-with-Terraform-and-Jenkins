@@ -1,6 +1,6 @@
 data "aws_ami" "custom_ami" {
-  most_recent      = true
-  owners           = ["amazon"]
+  most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
@@ -19,5 +19,5 @@ data "aws_ami" "custom_ami" {
 }
 
 data "aws_availability_zones" "azs" {
-   
+
 }
