@@ -4,7 +4,7 @@ data "aws_ami" "custom_ami" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-kernel-*-hvm-*-x86_64-gp2"]
+    values = ["ami-0c7217cdde317cfec"]
   }
 
   filter {
