@@ -1,0 +1,33 @@
+# need to update this file.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anime-quote-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: anime-quote-app
+  template:
+    metadata:
+      labels:
+        app: anime-quote-app
+    spec:
+      containers:
+        - name: anime-quote-app-container
+          image: chinmaykubal/animequotesapp
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: anime-quote-app-service
+  # namespace: gke-gcp-devops-prod
+spec:
+  selector:
+    app: anime-quote-app
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 3000
