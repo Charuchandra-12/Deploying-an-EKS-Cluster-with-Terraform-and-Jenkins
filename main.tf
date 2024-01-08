@@ -67,7 +67,7 @@ module "ec2_instance" {
   subnet_id                   = module.vpc.public_subnets[0]
   associate_public_ip_address = true
   user_data                   = file("jenkins-install.sh")
-  availability_zone = data.aws_availability_zones.azs.names[0]
+  availability_zone           = data.aws_availability_zones.azs.names[0]
   tags = {
     Name        = "jenkins-server"
     Terraform   = "true"
