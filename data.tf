@@ -4,7 +4,7 @@ data "aws_ami" "custom_ami" {
 
   filter {
     name   = "name"
-    values = ["ami-0c7217cdde317cfec"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20231207"]
   }
 
   filter {
