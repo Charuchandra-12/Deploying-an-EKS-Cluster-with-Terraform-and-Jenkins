@@ -12,3 +12,8 @@ variable "instance_type" {
   description = "instance_type_value"
   type        = string
 }
+
+variable "ubuntu_lts_ami" {
+  description = "ubuntu_lts_ami_value"
+  type        = string
+}
