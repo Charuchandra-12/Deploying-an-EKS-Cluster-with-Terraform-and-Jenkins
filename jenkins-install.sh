@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt update
 # Install Jenkins
 sudo snap install jenkins --classic
 
