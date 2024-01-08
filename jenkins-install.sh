@@ -40,5 +40,5 @@ sudo apt-get install -y kubectl
 # Configuring Firewall
 sudo ufw allow 8080
 sudo ufw allow ssh
-sudo ufw allow http
+# sudo ufw allow http
 sudo ufw enable
