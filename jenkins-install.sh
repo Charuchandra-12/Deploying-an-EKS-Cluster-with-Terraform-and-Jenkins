@@ -11,8 +11,6 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 # Install Jenkins
 sudo apt update -y && sudo apt install jenkins -y && sudo systemctl status jenkins 
 # If not active or running then run:- sudo systemctl enable --now jenkins
-# Modify Firewall to Allow Jenkins
-sudo ufw allow 8080 && sudo ufw allow 22 && sudo ufw enable
 
 
 # Install terraform
@@ -38,3 +36,9 @@ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update -y
 sudo apt-get install -y kubectl
+
+# Configuring Firewall
+sudo ufw allow 8080
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw enable
