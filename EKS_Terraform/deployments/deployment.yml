@@ -1,20 +1,19 @@
-# need to update this file.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: anime-quote-app-deployment
+  name: anime-quotes-app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: anime-quote-app
+      app: anime-quotes-app
   template:
     metadata:
       labels:
-        app: anime-quote-app
+        app: anime-quotes-app
     spec:
       containers:
-        - name: anime-quote-app-container
+        - name: anime-quotes-app-container
           image: chinmaykubal/animequotesapp
           ports:
             - containerPort: 3000
@@ -22,11 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: anime-quote-app-service
-  # namespace: gke-gcp-devops-prod
+  name: anime-quotes-app-service
 spec:
   selector:
-    app: anime-quote-app
+    app: anime-quotes-app
   type: LoadBalancer
   ports:
     - port: 80
